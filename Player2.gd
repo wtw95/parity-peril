@@ -6,16 +6,12 @@ const UP = Vector2(0,-1)
 const DOWN = Vector2(0,1)
 const RIGHT = Vector2(1,0)
 const LEFT = Vector2(-1,0)
-var is_player = false
 var speed = 0
 const MAX_SPEED = 500
 
 func _ready():
 	set_physics_process(true)
 	
-	
-func ai_move():
-	null
 
 func _physics_process(delta):
 	if is_player:
