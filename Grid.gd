@@ -38,13 +38,14 @@ func is_cell_vacant(pos, direction):
 	
 	if grid_pos.x < grid_size.x and grid_pos.x > 0:
 		if grid_pos.y < grid_size.y and grid_pos.y > 0:
-			return true if grid[grid_pos.x][grid_pos.y] == null or CAPTURE else false
+			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 	
 
 
 func update_child_pos(child_node):
-	var grid_pos = world_to_map(child_node.get_pos())
+	
+	var grid_pos = world_to_map(child_node.get_position())
 	print(grid_pos)
 	grid[grid_pos.x][grid_pos.y] == null
 	
