@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Grid.gd" type="Script" id=1]
-[ext_resource path="res://GridVisualizer.gd" type="Script" id=2]
+[ext_resource path="res://assets/Tiles/tileset_grid.tres" type="TileSet" id=1]
+[ext_resource path="res://Grid.gd" type="Script" id=2]
+[ext_resource path="res://GridVisualizer.gd" type="Script" id=3]
 
 [node name="Grid" type="TileMap"]
 
 mode = 0
-tile_set = null
-cell_size = Vector2( 64, 64 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 150, 150 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -21,12 +22,12 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
-script = ExtResource( 1 )
+tile_data = PoolIntArray( 0, 1610612737, 0, 1, 0, 0, 2, -1610612735, 0, 3, 536870912, 0, 4, -1073741823, 0, 5, 0, 0, 6, -1073741823, 0, 7, -1610612735, 0, 65536, -1610612735, 0, 65537, -1073741823, 0, 65538, -1073741823, 0, 65539, -1073741823, 0, 65540, 1, 0, 65541, 1610612738, 0, 65542, 1610612737, 0, 65543, 0, 0, 131072, 1610612737, 0, 131073, 1, 0, 131074, 1610612737, 0, 131075, 0, 0, 131076, -1610612735, 0, 131077, 1, 0, 131078, 1610612737, 0, 131079, -1610612735, 0, 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1610612737, 0, 196612, 1, 0, 196613, 0, 0, 196614, 1610612737, 0, 196615, 1610612738, 0, 262144, -1610612735, 0, 262145, 1610612737, 0, 262146, 2, 0, 262147, -536870911, 0, 262148, -1610612735, 0, 262149, -1073741823, 0, 262150, 1, 0, 262151, 536870912, 0, 327680, -2147483647, 0, 327681, -1073741823, 0, 327682, 0, 0, 327683, -1610612735, 0, 327684, -1610612735, 0, 327685, 0, 0, 327686, -1610612735, 0, 327687, -1073741823, 0 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="GridVisualizer" type="Node2D" parent="." index="0"]
 
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 

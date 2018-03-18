@@ -13,6 +13,10 @@ func _ready():
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(null)
+	
+	var Player = get_node("Player")
+	var start_pos = update_child_pos(Player)
+	Player.set_position(start_pos)
 	var cap_positions = []
 	cap_positions.append(Vector2(0,2))
 	cap_positions.append(Vector2(0,3))
@@ -47,7 +51,7 @@ func update_child_pos(child_node):
 	
 	var grid_pos = world_to_map(child_node.get_position())
 	print(grid_pos)
-	grid[grid_pos.x][grid_pos.y] == null
+	grid[grid_pos.x][grid_pos.y] = null
 	
 	var new_grid_pos = grid_pos + child_node.direction
 	grid[new_grid_pos.x][new_grid_pos.y] = child_node.type
