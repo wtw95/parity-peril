@@ -2,7 +2,7 @@ extends TileMap
 
 var tile_size = get_cell_size()
 var half_tile_size = tile_size / 2
-enum ENTITY_TYPES {PLAYER, CAPTURE}
+enum ENTITY_TYPES {PLAYER, PLAYER2, CAPTURE}
 var grid_size = Vector2(8,6)
 var grid = []
 
@@ -17,6 +17,10 @@ func _ready():
 	var Player = get_node("Player")
 	var start_pos = update_child_pos(Player)
 	Player.set_position(start_pos)
+	
+	var Player2 = get_node("Player2")
+	var start_pos2 = update_child_pos(Player2)
+	Player2.set_position(start_pos2)
 	var cap_positions = []
 	cap_positions.append(Vector2(0,2))
 	cap_positions.append(Vector2(0,3))

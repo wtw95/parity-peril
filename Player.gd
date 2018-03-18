@@ -43,41 +43,40 @@ func _input(event):
 
 
 func _physics_process(delta):
-	direction = Vector2()
-	speed = 0
 	if on_right_click:
 		if get_parent().grid[current_pos.x][current_pos.y] == grid.PLAYER:
-				print("This is a player.")
+				print("This is a BLUE player.")
 				on_right_click = false
 		elif get_parent().grid[current_pos.x][current_pos.y] == grid.CAPTURE:
 				print("This is a castle.")
 				on_right_click = false
 	elif on_left_click:
-		if current_pos != Vector2():
-			var distancex = abs(new_pos.x - current_pos.x)
-			var distancey = abs(new_pos.y - current_pos.y)
-			if is_down == false:
-				if distancex == 2 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-					can_move = true
-				elif distancey == 2 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-					can_move = true
-				if distancex == 1 and distancey == 1 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-					can_move = true
-				elif distancex == 1 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
-					can_move = true
-				elif distancey == 1 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
-					can_move = true
-		if can_move:
-			print("Move!")
-			var moveto = grid.map_to_world(new_pos)
-			var movefrom = grid.map_to_world(current_pos)
-			var vector = moveto - movefrom
-			#while moveto != movefrom:
-			#move_and_slide(Vector2(current_pos.x - new_pos.x, current_pos.y - new_pos.y) * MAX_SPEED * delta)
-			move_and_slide(vector * MAX_SPEED * delta)
-			self.set_position(grid.update_child_pos(self))
-			get_parent().grid[current_pos.x][current_pos.y] = null
-			can_move = false
+		var distancex = abs(new_pos.x - current_pos.x)
+		var distancey = abs(new_pos.y - current_pos.y)
+		if is_down == false:
+			if distancex == 2 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
+				can_move = true
+			elif distancey == 2 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
+				can_move = true
+			if distancex == 1 and distancey == 1 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
+				can_move = true
+			elif distancex == 1 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
+				can_move = true
+			elif distancey == 1 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
+				can_move = true
+			elif current_pos == Vector2(0,0):
+					print("OH GOD HELP ME")
+	if can_move:
+		print("Move!")
+		var moveto = grid.map_to_world(new_pos)
+		var movefrom = grid.map_to_world(current_pos)
+		var vector = moveto - movefrom
+		#while moveto != movefrom:
+		#move_and_slide(Vector2(current_pos.x - new_pos.x, current_pos.y - new_pos.y) * MAX_SPEED * delta)
+		move_and_slide(vector * MAX_SPEED * delta)
+		self.set_position(grid.update_child_pos(self))
+		get_parent().grid[current_pos.x][current_pos.y] = null
+		can_move = false
 		on_left_click = false
 		
 #	if Input.is_action_pressed("move_up"):

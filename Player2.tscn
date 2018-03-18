@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player2.gd" type="Script" id=1]
-[ext_resource path="res://odd_pawn.png" type="Texture" id=2]
+[ext_resource path="res://assets/Splash Images/EvenPikeman.png" type="Texture" id=2]
 
 [node name="Player2" type="KinematicBody2D"]
 
+position = Vector2( 654.384, 39.2876 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -13,7 +14,8 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 330.261, 154.695 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 

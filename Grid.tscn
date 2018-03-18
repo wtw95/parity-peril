@@ -4,7 +4,7 @@
 [ext_resource path="res://Grid.gd" type="Script" id=2]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=3]
 
-[node name="Grid" type="TileMap"]
+[node name="Grid" type="TileMap" index="0"]
 
 mode = 0
 tile_set = ExtResource( 1 )
