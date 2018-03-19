@@ -22,7 +22,7 @@ _sections_unfolded = [ "Cell", "Visibility" ]
 
 [node name="Player" parent="Grid" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 520, 810 )
+position = Vector2( 490, 800 )
 
 [node name="Player2" parent="Grid" index="2" instance=ExtResource( 5 )]
 
