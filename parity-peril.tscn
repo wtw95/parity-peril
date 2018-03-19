@@ -8,7 +8,7 @@
 [ext_resource path="res://Red_Capture.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Blue_Capture.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -25,14 +25,17 @@ position = Vector2( 380, 810 )
 
 [node name="Capture Point" parent="Grid" index="3" instance=ExtResource( 5 )]
 
+visible = false
 position = Vector2( 861.572, 1132.87 )
 
 [node name="Red_Capture" parent="Grid" index="4" instance=ExtResource( 6 )]
 
+visible = false
 position = Vector2( 622, 1132 )
 
 [node name="Blue_Capture" parent="Grid" index="5" instance=ExtResource( 7 )]
 
+visible = false
 position = Vector2( 412, 1142 )
 
 

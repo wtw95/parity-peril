@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player2.gd" type="Script" id=1]
 [ext_resource path="res://assets/Splash Images/EvenPikeman.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fonts/Arial.tres" type="DynamicFont" id=3]
 
 [node name="Player2" type="KinematicBody2D"]
 
@@ -18,34 +19,30 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="capture_roll" type="RichTextLabel" parent="." index="1"]
+[node name="capture_roll" type="Label" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -83.0
-margin_top = -138.0
-margin_right = -3.0
-margin_bottom = -118.0
-rect_scale = Vector2( 2, 2 )
+margin_left = -103.0
+margin_top = -118.0
+margin_right = 715.0
+margin_bottom = 26.0
+rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
+rect_clip_content = false
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = 20
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Test"
+align = 1
+valign = 1
 percent_visible = 1.0
-meta_underlined = true
-tab_size = 0
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "Grow Direction", "Margin", "Rect", "Visibility" ]
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
 

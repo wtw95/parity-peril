@@ -10,12 +10,6 @@ func _ready():
 	type = grid.CAPTURE_N
 	set_physics_process(true)
 
-func bluecapture():
-	get_node("Sprite").set_color("blue")
-	type = grid.CAPTURE_B
-	
-func redcapture():
-	get_node("Sprite").set_color("red")
-	type = grid.CAPTURE_R
+
 
 
