@@ -7,77 +7,112 @@ const MAX_SPEED = 4000
 var speed = 0
 var velocity = Vector2()
 
-var target_pos = Vector2()
-var target_direction = Vector2()
-var is_moving = false
-var move_click = false
+var target_pos_B = Vector2()
+var target_direction_B = Vector2()
+var is_moving_B = false
+var move_click_B = false
 var type
-var can_move = false
+var can_capture_B = true
+var can_move_B = false
 var grid
-var current_pos = Vector2()
-var new_pos = Vector2()
+var current_pos_B = Vector2()
+var new_pos_B = Vector2()
 onready var Capture = preload("res://Capture.tscn")
-var on_right_click = false
-var on_left_click = false
+onready var Capture_B = preload("res://Blue_Capture.tscn")
+var on_right_click_B = false
+var on_left_click_B = false
 var is_down = false
-var actions_left = 2
+var actions_left_B = 2
+var text_visible = false
 
 
 func _ready():
 	grid = get_parent()
 	type = grid.PLAYER
+	$capture_roll.clear()
 	set_physics_process(true)
 
 func _input(event):
 	if event.is_action_released("right_click"):
-		current_pos = grid.world_to_map(event.position)
-		print("Mouse Click to select at: ", current_pos)
-		move_click = true
-		on_right_click = true
+		current_pos_B = grid.world_to_map(event.position)
+		print("Mouse Click to select at: ", current_pos_B)
+		$capture_roll.clear()
+		grid.grid[0][0] = null
+		move_click_B = true
+		on_right_click_B = true
 
-	if event.is_action_released("left_click") and move_click:
-		new_pos = grid.world_to_map(event.position)
-		print("Mouse Click to move at: ", new_pos)
-		move_click = false
-		on_left_click = true
+	if event.is_action_released("left_click") and move_click_B:
+		new_pos_B = grid.world_to_map(event.position)
+		print("Mouse Click to move at: ", new_pos_B)
+		$capture_roll.clear()
+		move_click_B = false
+		on_left_click_B = true
 
 
 func _physics_process(delta):
-	if on_right_click:
-		if get_parent().grid[current_pos.x][current_pos.y] == grid.PLAYER:
+	if on_right_click_B:
+		if get_parent().grid[current_pos_B.x][current_pos_B.y] == grid.PLAYER:
 				print("This is a BLUE player.")
-				on_right_click = false
-		elif get_parent().grid[current_pos.x][current_pos.y] == grid.CAPTURE:
-				print("This is a castle.")
-				on_right_click = false
-	elif on_left_click:
-		var distancex = abs(new_pos.x - current_pos.x)
-		var distancey = abs(new_pos.y - current_pos.y)
+				on_right_click_B = false
+		elif get_parent().grid[current_pos_B.x][current_pos_B.y] == grid.CAPTURE_N:
+				print("This is a NEUTRAL castle.")
+				on_right_click_B = false
+		elif get_parent().grid[current_pos_B.x][current_pos_B.y] == grid.CAPTURE_B:
+				print("This is a BLUE castle.")
+				on_right_click_B = false
+	elif on_left_click_B:
+		var distancex = abs(new_pos_B.x - current_pos_B.x)
+		var distancey = abs(new_pos_B.y - current_pos_B.y)
 		if is_down == false:
-			if distancex == 2 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-				can_move = true
-			elif distancey == 2 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-				can_move = true
-			if distancex == 1 and distancey == 1 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left == 2:
-				can_move = true
-			elif distancex == 1 and distancey == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
-				can_move = true
-			elif distancey == 1 and distancex == 0 and get_parent().grid[new_pos.x][new_pos.y] != grid.CAPTURE and actions_left >= 1:
-				can_move = true
-			elif current_pos == Vector2(0,0):
+			get_parent().get_node("Player2").actions_left = 2
+			if distancex == 2 and distancey == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B == 2:
+				can_move_B = true
+				actions_left_B = actions_left_B - 2
+			elif distancey == 2 and distancex == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B == 2:
+				can_move_B = true
+				actions_left_B = actions_left_B - 2
+			elif distancex == 1 and distancey == 1 and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B == 2:
+				can_move_B = true
+				actions_left_B = actions_left_B - 1
+			elif distancex == 1 and distancey == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B >= 1:
+				can_move_B = true
+				actions_left_B = actions_left_B - 1
+			elif distancey == 1 and distancex == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B >= 1:
+				can_move_B = true
+				actions_left_B = actions_left_B - 1
+			elif distancex == 1 and distancey == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] == grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B >= 1:
+				can_capture_B = true
+			elif distancey == 1 and distancex == 0 and get_parent().grid[new_pos_B.x][new_pos_B.y] == grid.CAPTURE_N and get_parent().grid[new_pos_B.x][new_pos_B.y] != grid.PLAYER2 and actions_left_B >= 1:
+				can_capture_B = true
+			elif current_pos_B == Vector2(0,0):
 					print("OH GOD HELP ME")
-	if can_move:
+	if can_move_B:
 		print("Move!")
-		var moveto = grid.map_to_world(new_pos)
-		var movefrom = grid.map_to_world(current_pos)
+		var moveto = grid.map_to_world(new_pos_B)
+		var movefrom = grid.map_to_world(current_pos_B)
 		var vector = moveto - movefrom
-		#while moveto != movefrom:
-		#move_and_slide(Vector2(current_pos.x - new_pos.x, current_pos.y - new_pos.y) * MAX_SPEED * delta)
 		move_and_slide(vector * MAX_SPEED * delta)
 		self.set_position(grid.update_child_pos(self))
-		get_parent().grid[current_pos.x][current_pos.y] = null
-		can_move = false
-		on_left_click = false
+		get_parent().grid[current_pos_B.x][current_pos_B.y] = null
+		can_move_B = false
+		on_left_click_B = false
+	if can_capture_B:
+		can_capture_B = false
+		on_left_click_B = false
+		randomize()
+		var result = randi() % 2
+		print(result)
+		if result == 0:
+			actions_left_B = actions_left_B - 1
+			$capture_roll.set_text("No capture!")
+		else:
+			$capture_roll.set_text("Captured!")
+			grid.bluecap()
+		#	get_parent().grid[new_pos_B.x][new_pos_B.y] = get_parent().get_node("Blue_Capture")
+			actions_left_B = actions_left_B - 1
+			
+			#get_parent().get_node("Capture Point").bluecapture()
+			#get_parent().grid[new_pos_B.x][new_pos_B.y] = grid.CAPTURE_B
 		
 #	if Input.is_action_pressed("move_up"):
 #		direction.y = -1

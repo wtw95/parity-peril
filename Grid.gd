@@ -2,11 +2,12 @@ extends TileMap
 
 var tile_size = get_cell_size()
 var half_tile_size = tile_size / 2
-enum ENTITY_TYPES {PLAYER, PLAYER2, CAPTURE}
+enum ENTITY_TYPES {PLAYER, PLAYER2, CAPTURE_N, CAPTURE_R, CAPTURE_B}
 var grid_size = Vector2(8,6)
 var grid = []
 
 onready var Capture = preload("res://Capture.tscn")
+onready var Capture_B = preload("res://Blue_Capture.tscn")
 
 func _ready():
 	for x in range(grid_size.x):
@@ -34,9 +35,9 @@ func _ready():
 	for pos in cap_positions:
 		var new_capture = Capture.instance()
 		new_capture.set_position(map_to_world(pos) + half_tile_size)
-		grid[pos.x][pos.y] = CAPTURE
+		grid[pos.x][pos.y] = CAPTURE_N
 		add_child(new_capture)
-	pass
+		grid[0][0] = null
 
 func start():
 	pass
@@ -49,6 +50,13 @@ func is_cell_vacant(pos, direction):
 			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 	
+
+func bluecap():
+	var pos_B = $Player.new_pos_B
+	var new_capture_B = Capture_B.instance()
+	new_capture_B.set_position(map_to_world(pos_B) + half_tile_size)
+	grid[pos_B.x][pos_B.y] = CAPTURE_B
+	add_child(new_capture_B)
 
 
 func update_child_pos(child_node):

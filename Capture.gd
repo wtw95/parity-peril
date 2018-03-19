@@ -4,12 +4,18 @@ extends Node2D
 var type
 var grid
 
+
 func _ready():
 	grid = get_parent()
-	type = grid.CAPTURE
+	type = grid.CAPTURE_N
 	set_physics_process(true)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func bluecapture():
+	get_node("Sprite").set_color("blue")
+	type = grid.CAPTURE_B
+	
+func redcapture():
+	get_node("Sprite").set_color("red")
+	type = grid.CAPTURE_R
+
+
