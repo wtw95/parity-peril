@@ -5,12 +5,19 @@ var half_tile_size = tile_size / 2
 enum ENTITY_TYPES {PLAYER, PLAYER2, CAPTURE_N, CAPTURE_R, CAPTURE_B}
 var grid_size = Vector2(8,6)
 var grid = []
+var hasneutral
+var hasred
+var hasblue
+var bluevictory = false
+var redvictory = false
 
 onready var Capture = preload("res://Capture.tscn")
 onready var Capture_B = preload("res://Blue_Capture.tscn")
 onready var Capture_R = preload("res://Red_Capture.tscn")
 
 func _ready():
+	get_node("Victory Text").get_node("Red Victory").hide()
+	get_node("Victory Text").get_node("Blue Victory").hide()
 	for x in range(grid_size.x):
 		grid.append([])
 		for y in range(grid_size.y):
@@ -51,6 +58,44 @@ func is_cell_vacant(pos, direction):
 			return true if grid[grid_pos.x][grid_pos.y] == null else false
 	return false
 	
+
+func totalblue():
+	var blue = 0
+	for x in range(grid_size.x):
+		for y in range(grid_size.y):
+			if grid[x][y] == 4:
+				blue = blue + 1
+	return blue
+
+func totalred():
+	var red = 0
+	for x in range(grid_size.x):
+		for y in range(grid_size.y):
+			if grid[x][y] == 3:
+				red = red + 1
+	return red
+	
+func wincheck():
+	hasneutral = false
+	for x in range(grid_size.x):
+		for y in range(grid_size.y):
+			if grid[x][y] == 2:
+				hasneutral = true
+	if hasneutral == false:
+		hasred = false
+		for x in range(grid_size.x):
+			for y in range(grid_size.y):
+				if grid[x][y] == 3:
+					hasred = true
+		hasblue = false
+		for x in range(grid_size.x):
+			for y in range(grid_size.y):
+				if grid[x][y] == 4:
+					hasblue = true
+		if hasred == true and hasblue == false:
+			get_node("Victory Text").redvictory()
+		elif hasblue == true and hasred == false:
+			get_node("Victory Text").bluevictory()
 
 func bluecap():
 	var pos_B = $Player.new_pos_B

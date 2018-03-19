@@ -110,10 +110,11 @@ func _physics_process(delta):
 						$capture_roll.set_text("Success!")
 						grid.redcap()
 					elif get_parent().grid[new_pos.x][new_pos.y] == grid.CAPTURE_B:
-						var result = randi() % 2
+						var result = randf()
 						print(result)
-						if result == 0:
-							$capture_roll.set_text("Failed!")
-						else:
+						print("total red = " +str(float(grid.totalred())/8))
+						if result < float(grid.totalred())/8:
 							$capture_roll.set_text("Success!")
 							grid.redcap()
+						else:
+							$capture_roll.set_text("Failed!")

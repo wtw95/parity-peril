@@ -116,10 +116,14 @@ func _physics_process(delta):
 					$capture_roll.set_text("Success!")
 					grid.bluecap()
 				elif get_parent().grid[new_pos_B.x][new_pos_B.y] == grid.CAPTURE_R:
-					var result = randi() % 2
+					var result = randf()
 					print(result)
-					if result == 0:
-						$capture_roll.set_text("Failed!")
-					else:
+					print("total blue = " +str(float(grid.totalblue())/8))
+					if result < float(grid.totalblue())/8:
 						$capture_roll.set_text("Success!")
 						grid.bluecap()
+					else:
+						$capture_roll.set_text("Failed!")
+	grid.wincheck()
+	#if grid.hasneutral == false:
+		

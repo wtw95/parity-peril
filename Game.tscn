@@ -6,7 +6,7 @@
 
 [node name="Player" type="KinematicBody2D"]
 
-position = Vector2( 489.038, 800.188 )
+position = Vector2( 1059.33, 670.68 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
