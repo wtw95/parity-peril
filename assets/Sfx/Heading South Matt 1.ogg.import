@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Heading South Matt 1.ogg-d9f0090d9269a4909a307b8a0b7497ab.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Heading South Matt 1.ogg"
+source_md5="d32c0d5d3c1664be9bba3aa9c0097ae1"
+
+dest_files=[ "res://.import/Heading South Matt 1.ogg-d9f0090d9269a4909a307b8a0b7497ab.oggstr" ]
+dest_md5="be3c08e8d34cfaaa05e36c6f7b16a9f5"
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/To the Front 1.ogg-280adce5cec5bb3d6a802ec2c5f89ffe.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/To the Front 1.ogg"
+source_md5="85a82efb5832d2c85500042f22293ba3"
+
+dest_files=[ "res://.import/To the Front 1.ogg-280adce5cec5bb3d6a802ec2c5f89ffe.oggstr" ]
+dest_md5="c17adebd3450fed63ec0dbd7e8b522bf"
+
+[params]
+
+loop=false
+loop_offset=0

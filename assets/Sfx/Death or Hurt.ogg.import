@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Death or Hurt.ogg-d91579a799a243f3bb736763d0576520.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Death or Hurt.ogg"
+source_md5="a0be6377b8afbe4a1e5f87cd66582a1b"
+
+dest_files=[ "res://.import/Death or Hurt.ogg-d91579a799a243f3bb736763d0576520.oggstr" ]
+dest_md5="433614127cb98ce6741869ff4eea52d7"
+
+[params]
+
+loop=false
+loop_offset=0

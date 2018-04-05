@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Take the Castle 1.ogg-6c5cf740b3eb037fcff7e768b151916f.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Take the Castle 1.ogg"
+source_md5="4721c256e28bce99f9ac4ae7d449ec6b"
+
+dest_files=[ "res://.import/Take the Castle 1.ogg-6c5cf740b3eb037fcff7e768b151916f.oggstr" ]
+dest_md5="9fc905d391703daa85a1bfa3e5021daf"
+
+[params]
+
+loop=false
+loop_offset=0

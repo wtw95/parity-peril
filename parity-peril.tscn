@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://parity-peril.gd" type="Script" id=1]
 [ext_resource path="res://Grid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Fonts/VictoryScene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Game.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Capture.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Red_Capture.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Blue_Capture.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Capture.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Red_Capture.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Blue_Capture.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Tiles/glow.png" type="Texture" id=9]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -20,22 +21,46 @@ _sections_unfolded = [ "Cell", "Visibility" ]
 
 [node name="Victory Text2" parent="Grid" index="0" instance=ExtResource( 3 )]
 
-[node name="Player" parent="Grid" index="1" instance=ExtResource( 4 )]
+[node name="Odd_A" parent="Grid" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 490, 800 )
+position = Vector2( 210, 820 )
 
-[node name="Player2" parent="Grid" index="2" instance=ExtResource( 5 )]
+[node name="Odd_B" parent="Grid" index="2" instance=ExtResource( 4 )]
 
-[node name="Capture Point" parent="Grid" index="4" instance=ExtResource( 6 )]
+position = Vector2( 520, 830 )
+
+[node name="Odd_C" parent="Grid" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 830, 830 )
+
+[node name="Capture Point" parent="Grid" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 861.572, 1132.87 )
 
-[node name="Red_Capture" parent="Grid" index="5" instance=ExtResource( 7 )]
+[node name="Red_Capture" parent="Grid" index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 622, 1132 )
 
-[node name="Blue_Capture" parent="Grid" index="6" instance=ExtResource( 8 )]
+[node name="Blue_Capture" parent="Grid" index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 412, 1142 )
+
+[node name="Even_A" parent="Grid" index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 380, 70 )
+
+[node name="Even_B" parent="Grid" index="12" instance=ExtResource( 8 )]
+
+position = Vector2( 680, 80 )
+
+[node name="Even_C" parent="Grid" index="13" instance=ExtResource( 8 )]
+
+position = Vector2( 530, 80 )
+
+[node name="Glow" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 230, 380 )
+texture = ExtResource( 9 )
 
 

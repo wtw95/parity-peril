@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Attack 1.ogg-9b4ca44654406453fe0a47108b73e2c6.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Attack 1.ogg"
+source_md5="07bc04d1569de1a9b94562cf616321c7"
+
+dest_files=[ "res://.import/Attack 1.ogg-9b4ca44654406453fe0a47108b73e2c6.oggstr" ]
+dest_md5="c99b731ae655fba00762b0a24aedbcc9"
+
+[params]
+
+loop=false
+loop_offset=0

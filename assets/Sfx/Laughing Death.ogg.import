@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Laughing Death.ogg-60d21a6f44de0588a6c20d6a7e433f40.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Laughing Death.ogg"
+source_md5="a39cda22f7c396c765c88cbf9debe9bb"
+
+dest_files=[ "res://.import/Laughing Death.ogg-60d21a6f44de0588a6c20d6a7e433f40.oggstr" ]
+dest_md5="18c3297bba999d2027264a9a881c4f84"
+
+[params]
+
+loop=false
+loop_offset=0

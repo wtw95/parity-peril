@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Very strange Death 1.ogg-3d4f259d2ed4ffe29d216e748db68504.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/Very strange Death 1.ogg"
+source_md5="e69f7b530bf81960dd7da800eb7c6f81"
+
+dest_files=[ "res://.import/Very strange Death 1.ogg-3d4f259d2ed4ffe29d216e748db68504.oggstr" ]
+dest_md5="6792d20da325bd45c6748c5d15cbc718"
+
+[params]
+
+loop=false
+loop_offset=0

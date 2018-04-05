@@ -14,7 +14,7 @@ var move_click = false
 var type
 var can_move = false
 var can_capture = false
-var grid
+var grid 
 var current_pos = Vector2()
 var new_pos = Vector2()
 onready var Capture = preload("res://Capture.tscn")
@@ -22,32 +22,45 @@ var on_right_click = false
 var on_left_click = false
 var is_down = false
 var actions_left = 2
+var is_selected = false
 
 
 func _ready():
 	grid = get_parent()
 	type = grid.PLAYER2
+	$Glow.hide()
 	$capture_roll.set_text("")
 	grid.get_node("Action Counter Red").set_text("Red actions: " + str(actions_left))
 	set_physics_process(true)
 
-func _input(event):
-	if event.is_action_released("right_click"):
-		current_pos = grid.world_to_map(event.position)
-		print("Mouse Click to select at: ", current_pos)
-		$capture_roll.set_text("")
-		move_click = true
-		on_right_click = true
 
-	if event.is_action_released("left_click") and move_click:
-		new_pos = grid.world_to_map(event.position)
-		print("Mouse Click to move at: ", new_pos)
-		$capture_roll.set_text("")
-		move_click = false
-		on_left_click = true
+func _input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("left_click"):
+		print("Clicked " + str(self))
+		is_selected = true
+		return(self)
+
+#func _input(event):
+#	if event.is_action_released("right_click"):
+#		current_pos = grid.world_to_map(event.position)
+#		print("Mouse Click to select at: ", current_pos)
+#		$capture_roll.set_text("")
+#		move_click = true
+#		on_right_click = true
+
+#	if event.is_action_released("left_click") and move_click:
+#		new_pos = grid.world_to_map(event.position)
+#		print("Mouse Click to move at: ", new_pos)
+#		$capture_roll.set_text("")
+#		move_click = false
+#		on_left_click = true
 
 
 func _physics_process(delta):
+	if is_selected:
+		$Glow.show()
+	else:
+		$Glow.hide()
 	grid.get_node("Action Counter Red").set_text("Red actions: " + str(actions_left))
 	if on_right_click:
 		if get_parent().grid[current_pos.x][current_pos.y] == grid.PLAYER2:
@@ -118,3 +131,11 @@ func _physics_process(delta):
 							grid.redcap()
 						else:
 							$capture_roll.set_text("Failed!")
+func selection():
+	if is_selected == false:
+		is_selected = true
+		current_pos = get_parent().get_parent().click_pos
+	elif is_selected == true:
+		new_pos = get_parent().get_parent().click_pos
+		movecheck()
+		

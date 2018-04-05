@@ -1,19 +1,20 @@
 extends Node
 
-var arrayBlue = Array()
-var arrayRed = Array()
+var selected_piece_name = "None"
+var selected_piece_pos = Vector2(-1, -1)
+var selected_piece = "None"
+
+var current_player = "even"
+
+
+var state = []
+
 
 func _ready():
-    print("Global ready!")
-
-func arrayBlue_add(addName):
-    arrayBlue.push_back(addName)
-
-func arrayBlue_size():
-    return arrayBlue.size()
-
-func arrayRed_add(addName):
-    arrayRed.push_back(addName)
-
-func arrayRed_size():
-    return arrayRed.size()
+	# Dash for empty square
+	# w for white piece
+	# b for black piece
+	for i in range(8):
+		state.append([])
+		for j in range(6):
+			state[i].append("-")

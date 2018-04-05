@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/For Oddom 1.ogg-aede113aaf8c7efb013f0a5986a71811.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/For Oddom 1.ogg"
+source_md5="a80629d594cb53e0a7379f031a5dbcbf"
+
+dest_files=[ "res://.import/For Oddom 1.ogg-aede113aaf8c7efb013f0a5986a71811.oggstr" ]
+dest_md5="b4f36dcc45fa34d38bc85d158772960d"
+
+[params]
+
+loop=false
+loop_offset=0

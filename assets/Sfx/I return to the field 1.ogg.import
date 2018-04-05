@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/I return to the field 1.ogg-ffbf955403b47ad2b6e5c69506a3af7b.oggstr"
+
+[deps]
+
+source_file="res://assets/Sfx/I return to the field 1.ogg"
+source_md5="f24f2a281a31486694d4426ad6738ca3"
+
+dest_files=[ "res://.import/I return to the field 1.ogg-ffbf955403b47ad2b6e5c69506a3af7b.oggstr" ]
+dest_md5="a34bdd16566d1faaa5bc286a9ab67d43"
+
+[params]
+
+loop=false
+loop_offset=0

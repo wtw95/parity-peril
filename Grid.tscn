@@ -6,7 +6,7 @@
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
 [ext_resource path="res://assets/Fonts/VictoryScene.tscn" type="PackedScene" id=5]
 
-[node name="Grid" type="TileMap" index="0"]
+[node name="Grid" type="TileMap"]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -94,7 +94,6 @@ _sections_unfolded = [ "Anchor", "BBCode", "Margin", "Rect", "Visibility", "cust
 [node name="GridVisualizer" type="Node2D" parent="." index="2"]
 
 position = Vector2( 0, 0.00012207 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 4 )
 
 [node name="Victory Text" parent="." index="3" instance=ExtResource( 5 )]

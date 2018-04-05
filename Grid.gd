@@ -22,30 +22,14 @@ func _ready():
 		grid.append([])
 		for y in range(grid_size.y):
 			grid[x].append(null)
-	
-	var Player = get_node("Player")
-	var start_pos = update_child_pos(Player)
-	Player.set_position(start_pos)
-	
-	var Player2 = get_node("Player2")
-	var start_pos2 = update_child_pos(Player2)
-	Player2.set_position(start_pos2)
-	var cap_positions = []
-	cap_positions.append(Vector2(0,2))
-	cap_positions.append(Vector2(0,3))
-	cap_positions.append(Vector2(2,1))
-	cap_positions.append(Vector2(3,4))
-	cap_positions.append(Vector2(4,4))
-	cap_positions.append(Vector2(5,1))
-	cap_positions.append(Vector2(7,2))
-	cap_positions.append(Vector2(7,3))
-	
-	for pos in cap_positions:
-		var new_capture = Capture.instance()
-		new_capture.set_position(map_to_world(pos) + half_tile_size)
-		grid[pos.x][pos.y] = CAPTURE_N
-		add_child(new_capture)
-		grid[0][0] = null
+	get_node("Odd_A").set_position(update_child_pos(get_node("Odd_A")))
+	get_node("Odd_B").set_position(update_child_pos(get_node("Odd_B")))
+	get_node("Odd_C").set_position(update_child_pos(get_node("Odd_C")))
+	get_node("Even_A").set_position(update_child_pos(get_node("Even_A")))
+	get_node("Even_B").set_position(update_child_pos(get_node("Even_B")))
+	get_node("Even_C").set_position(update_child_pos(get_node("Even_C")))
+	setcaptures()
+
 
 func start():
 	pass
@@ -98,7 +82,7 @@ func wincheck():
 			get_node("Victory Text").bluevictory()
 
 func bluecap():
-	var pos_B = $Player.new_pos_B
+	var pos_B = $Player.new_pos
 	if pos_B == Vector2(0,2) or Vector2(0,3) or Vector2(2,1) or Vector2(3,4) or Vector2(4,4) or Vector2(5,1) or Vector2(7,2) or Vector2(7,3):
 		var new_capture_B = Capture_B.instance()
 		new_capture_B.set_position(map_to_world(pos_B) + half_tile_size)
@@ -124,4 +108,22 @@ func update_child_pos(child_node):
 	
 	var target_pos = map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
+	
+func setcaptures():
+	var cap_positions = []
+	cap_positions.append(Vector2(0,2))
+	cap_positions.append(Vector2(0,3))
+	cap_positions.append(Vector2(2,1))
+	cap_positions.append(Vector2(3,4))
+	cap_positions.append(Vector2(4,4))
+	cap_positions.append(Vector2(5,1))
+	cap_positions.append(Vector2(7,2))
+	cap_positions.append(Vector2(7,3))
+	
+	for pos in cap_positions:
+		var new_capture = Capture.instance()
+		new_capture.set_position(map_to_world(pos) + half_tile_size)
+		grid[pos.x][pos.y] = CAPTURE_N
+		add_child(new_capture)
+		grid[0][0] = null
 
