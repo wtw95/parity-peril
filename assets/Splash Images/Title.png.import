@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Title.png-b0d72c769d10bfa31f4fd349af45e968.stex"
+
+[deps]
+
+source_file="res://assets/Splash Images/Title.png"
+source_md5="8ac56c997c08e8428b6542a77558e513"
+
+dest_files=[ "res://.import/Title.png-b0d72c769d10bfa31f4fd349af45e968.stex" ]
+dest_md5="31503088ab131c1ed768242e78d236be"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

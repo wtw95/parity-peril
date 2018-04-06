@@ -16,15 +16,16 @@ func _input(event):
 	if event.is_action_pressed("left_click"):
 		click_pos = grid.world_to_map(event.position)
 	#	print("Mouse Click to select at: ", click_pos)
-		if grid.grid[click_pos.x][click_pos.y] == grid.PLAYER2:
-			print("PLAYER2")
-			deselect()
-		elif grid.grid[click_pos.x][click_pos.y] == grid.PLAYER:
-			print("PLAYER")
-			deselect()
-		elif grid.grid[click_pos.x][click_pos.y] == null:
-			print("Nothing!")
-			deselect()
+		if click_pos.x <=7 and click_pos.y <=5:
+			if grid.grid[click_pos.x][click_pos.y] == grid.PLAYER2:
+				print("PLAYER2")
+				deselect()
+			elif grid.grid[click_pos.x][click_pos.y] == grid.PLAYER:
+				print("PLAYER")
+				deselect()
+			elif grid.grid[click_pos.x][click_pos.y] == null:
+				print("Nothing!")
+				deselect()
 			
 		#grid.grid[0][0] = null
 	#if event.is_action_released("left_click"):
@@ -37,7 +38,9 @@ func setboard():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
+func restart():
+	grid.setcaptures()
+	grid.setpositions()
 func deselect():
 	$Grid/Odd_A.is_selected = false
 	$Grid/Odd_B.is_selected = false
@@ -45,6 +48,12 @@ func deselect():
 	$Grid/Even_A.is_selected = false
 	$Grid/Even_B.is_selected = false
 	$Grid/Even_C.is_selected = false
+	$Grid/Odd_A/capture_roll.set_text("")
+	$Grid/Odd_B/capture_roll.set_text("")
+	$Grid/Odd_C/capture_roll.set_text("")
+	$Grid/Even_A/capture_roll.set_text("")
+	$Grid/Even_B/capture_roll.set_text("")
+	$Grid/Even_C/capture_roll.set_text("")
 	
 func print_board_state():
 	print("Current player: ", global.current_player_color)

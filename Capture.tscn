@@ -8,7 +8,7 @@
 
 position = Vector2( -190.428, -119.13 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

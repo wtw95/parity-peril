@@ -1,0 +1,168 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/Sfx/Attack 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/Sfx/Death 1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/Sfx/Death 2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/Sfx/Death or Hurt.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/Sfx/Fall Back 1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/Sfx/Fall Back 2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/Sfx/For Evenhood 1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/Sfx/For Oddom 1.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/Sfx/Heading East 1.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/Sfx/Heading North 1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/Sfx/Heading South Matt 1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/Sfx/Heading West 1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/Sfx/I return to the field 1.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/Sfx/Laughing Death.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/Sfx/Take the Castle 1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/Sfx/To the Front 1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/Sfx/Very strange Death 1.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/Sfx/Where are my brothers 1.ogg" type="AudioStream" id=18]
+
+[node name="AudioHandler" type="Node"]
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 1 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Death1" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Death2" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="FallBack1" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="FallBack2" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ForEvenhood" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ForOdddom" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="East" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="North" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="South" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="West" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Return" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="LaughingDeath" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TakeCastle" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Front" type="AudioStreamPlayer" parent="." index="15"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="StrangeDeath" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Brothers" type="AudioStreamPlayer" parent="." index="17"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

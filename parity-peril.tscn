@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://parity-peril.gd" type="Script" id=1]
 [ext_resource path="res://Grid.tscn" type="PackedScene" id=2]
@@ -8,7 +8,27 @@
 [ext_resource path="res://Red_Capture.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Blue_Capture.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/Tiles/glow.png" type="Texture" id=9]
+[ext_resource path="res://AudioHandler.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Turn.gd" type="Script" id=11]
+[ext_resource path="res://assets/Tiles/glow.png" type="Texture" id=12]
+[ext_resource path="res://assets/Splash Images/Background.png" type="Texture" id=13]
+[ext_resource path="res://assets/UI/Ruleset.png" type="Texture" id=14]
+[ext_resource path="res://assets/Splash Images/Title.png" type="Texture" id=15]
+[ext_resource path="res://Play.gd" type="Script" id=16]
+[ext_resource path="res://assets/UI/Play.png" type="Texture" id=17]
+[ext_resource path="res://Rules.gd" type="Script" id=18]
+[ext_resource path="res://assets/UI/Rules.png" type="Texture" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 12.0602 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 140, 50 )
 
 [node name="Game" type="Node"]
 
@@ -21,17 +41,26 @@ _sections_unfolded = [ "Cell", "Visibility" ]
 
 [node name="Victory Text2" parent="Grid" index="0" instance=ExtResource( 3 )]
 
+visible = false
+_sections_unfolded = [ "Pause" ]
+
 [node name="Odd_A" parent="Grid" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 210, 820 )
+position = Vector2( 680, 830 )
+z_index = 1
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
 
 [node name="Odd_B" parent="Grid" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 520, 830 )
+z_index = 1
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index" ]
 
 [node name="Odd_C" parent="Grid" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 830, 830 )
+z_index = 1
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index" ]
 
 [node name="Capture Point" parent="Grid" index="5" instance=ExtResource( 5 )]
 
@@ -45,22 +74,103 @@ position = Vector2( 622, 1132 )
 
 position = Vector2( 412, 1142 )
 
-[node name="Even_A" parent="Grid" index="11" instance=ExtResource( 8 )]
+[node name="Even_A" parent="Grid" index="9" instance=ExtResource( 8 )]
 
-position = Vector2( 380, 70 )
+position = Vector2( 380, 80 )
+z_index = 1
 
-[node name="Even_B" parent="Grid" index="12" instance=ExtResource( 8 )]
+[node name="Even_B" parent="Grid" index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 680, 80 )
+z_index = 1
 
-[node name="Even_C" parent="Grid" index="13" instance=ExtResource( 8 )]
+[node name="Even_C" parent="Grid" index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 530, 80 )
+z_index = 1
+
+[node name="AudioHandler" parent="Grid" index="12" instance=ExtResource( 9 )]
+
+[node name="GUI" parent="Grid" index="13" instance=ExtResource( 10 )]
+
+script = ExtResource( 11 )
 
 [node name="Glow" type="Sprite" parent="." index="1"]
 
 visible = false
 position = Vector2( 230, 380 )
-texture = ExtResource( 9 )
+texture = ExtResource( 12 )
+
+[node name="Menu" type="Area2D" parent="." index="2"]
+
+position = Vector2( 600, 480 )
+z_index = 2
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Background" type="Sprite" parent="Menu" index="0"]
+
+texture = ExtResource( 13 )
+
+[node name="Ruleset" type="Sprite" parent="Menu" index="1"]
+
+visible = false
+texture = ExtResource( 14 )
+hframes = 6
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="Title" type="Sprite" parent="Menu" index="2"]
+
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Play" type="Area2D" parent="Menu" index="3"]
+
+position = Vector2( 10, 290 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Play" index="0"]
+
+position = Vector2( -3.14713e-05, -7.15256e-06 )
+scale = Vector2( 11.5385, 4.648 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Menu/Play" index="1"]
+
+texture = ExtResource( 17 )
+
+[node name="Rules" type="Area2D" parent="Menu" index="4"]
+
+position = Vector2( 10, 420 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Rules" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Menu/Rules" index="1"]
+
+texture = ExtResource( 19 )
 
 

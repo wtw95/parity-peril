@@ -81,16 +81,16 @@ func wincheck():
 		elif hasblue == true and hasred == false:
 			get_node("Victory Text").bluevictory()
 
-func bluecap():
-	var pos_B = $Player.new_pos
+func bluecap(pos):
+	var pos_B = pos
 	if pos_B == Vector2(0,2) or Vector2(0,3) or Vector2(2,1) or Vector2(3,4) or Vector2(4,4) or Vector2(5,1) or Vector2(7,2) or Vector2(7,3):
 		var new_capture_B = Capture_B.instance()
 		new_capture_B.set_position(map_to_world(pos_B) + half_tile_size)
 		grid[pos_B.x][pos_B.y] = CAPTURE_B
 		add_child(new_capture_B)
 
-func redcap():
-	var pos_R = $Player2.new_pos
+func redcap(pos):
+	var pos_R = pos
 	if pos_R == Vector2(0,2) or Vector2(0,3) or Vector2(2,1) or Vector2(3,4) or Vector2(4,4) or Vector2(5,1) or Vector2(7,2) or Vector2(7,3):
 		var new_capture_R = Capture_R.instance()
 		new_capture_R.set_position(map_to_world(pos_R) + half_tile_size)
@@ -126,4 +126,17 @@ func setcaptures():
 		grid[pos.x][pos.y] = CAPTURE_N
 		add_child(new_capture)
 		grid[0][0] = null
-
+		
+func setpositions():
+	get_node("Odd_A").set_position(map_to_world(Vector2(4,5)  + half_tile_size))
+	#get_node("Odd_A/Sprite").show()
+	get_node("Odd_B").set_position(map_to_world(Vector2(5,5)  + half_tile_size))
+	#get_node("Odd_B/Sprite").show()
+	get_node("Odd_C").set_position(map_to_world(Vector2(6,5)  + half_tile_size))
+	#get_node("Odd_C/Sprite").show()
+	get_node("Even_A").set_position(map_to_world(Vector2(3,0)  + half_tile_size))
+	#get_node("Even_A/Sprite").show()
+	get_node("Even_B").set_position(map_to_world(Vector2(5,0)  + half_tile_size))
+	#get_node("Even_B/Sprite").show()
+	get_node("Even_C").set_position(map_to_world(Vector2(4,0)  + half_tile_size))
+	#get_node("Even_C/Sprite").show()
