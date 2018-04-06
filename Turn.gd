@@ -2,8 +2,6 @@ extends Area2D
 
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
 	
 func _input_event(viewport, event, shape_idx):
@@ -22,7 +20,3 @@ func _input_event(viewport, event, shape_idx):
 			get_parent().get_node("Even_B").refill_actions()
 			get_parent().get_node("Even_C").refill_actions()
 		return(self)
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

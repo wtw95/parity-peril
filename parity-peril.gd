@@ -1,7 +1,6 @@
 extends Node
 
-# class member variables go here, for example:
-# var b = "textvar"
+
 var click_pos
 var grid
 
@@ -30,17 +29,10 @@ func _input(event):
 		
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().reload_current_scene()
-		#grid.grid[0][0] = null
-	#if event.is_action_released("left_click"):
-	#	click_pos = grid.world_to_map(event.position)
-	#	print("Mouse Click to move at: ", click_pos)
 
 func setboard():
 	grid.setcaptures()
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+
 func restart():
 	grid.setcaptures()
 	grid.setpositions()

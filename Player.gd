@@ -68,16 +68,8 @@ func _physics_process(delta):
 	if global.game_active:
 		grid.wincheck()
 		grid.get_parent().deathcheck()
-	#if grid.hasneutral == false:
-		
 
-#func selection():
-#	if is_selected == false:
-#		is_selected = true
-#		if global.odd_deaths == 2:
-#			get_parent().get_node("AudioHandler/Brothers").play()
-#		current_pos = get_parent().get_parent().click_pos
-	
+
 func movecheck():
 	if global.current_player == "odd":
 		if is_down:

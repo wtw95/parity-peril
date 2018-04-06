@@ -1,6 +1,6 @@
 extends Node2D
 
-# class member variables go here, for example:
+
 var type
 var grid
 
