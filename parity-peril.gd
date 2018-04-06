@@ -8,6 +8,7 @@ var grid
 
 
 func _ready():
+	global.game_active = true
 	grid = $Grid
 	setboard()
 
@@ -26,7 +27,9 @@ func _input(event):
 			elif grid.grid[click_pos.x][click_pos.y] == null:
 				print("Nothing!")
 				deselect()
-			
+		
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().reload_current_scene()
 		#grid.grid[0][0] = null
 	#if event.is_action_released("left_click"):
 	#	click_pos = grid.world_to_map(event.position)
@@ -54,19 +57,11 @@ func deselect():
 	$Grid/Even_A/capture_roll.set_text("")
 	$Grid/Even_B/capture_roll.set_text("")
 	$Grid/Even_C/capture_roll.set_text("")
-	
-func print_board_state():
-	print("Current player: ", global.current_player_color)
-	print("Selected pos: ", global.selected_piece_pos)
-	print("Selected name: ", global.selected_piece_name)
-	if global.selected_piece_name != "None":
-		print("Has normal moves: ", has_normal_moves(global.selected_piece_name))
-		print("Has capture moves: ", has_capture_moves(global.selected_piece_name))
-	for i in range(8):
-		var state_line = ""
-		for j in range(6):
-			if j == global.selected_piece_pos.x and i == global.selected_piece_pos.y:
-				state_line += "(" + global.state[j][i] + ")\t"
-			else:
-				state_line += global.state[j][i] + "\t"
-		print(state_line)
+
+func deathcheck():
+	if $Grid/Odd_A.is_dead and $Grid/Odd_B.is_dead and $Grid/Odd_C.is_dead:
+		global.game_active = false
+		get_node("Grid").get_node("Victory Text").redvictory()
+	elif $Grid/Even_A.is_dead and $Grid/Even_B.is_dead and $Grid/Even_C.is_dead:
+		global.game_active = false
+		get_node("Grid").get_node("Victory Text").bluevictory()

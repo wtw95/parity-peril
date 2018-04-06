@@ -5,16 +5,10 @@ var selected_piece_pos = Vector2(-1, -1)
 var selected_piece = "None"
 
 var current_player = "even"
-
-
-var state = []
+var game_active = true
+var even_deaths = 0
+var odd_deaths = 0
 
 
 func _ready():
-	# Dash for empty square
-	# w for white piece
-	# b for black piece
-	for i in range(8):
-		state.append([])
-		for j in range(6):
-			state[i].append("-")
+	pass

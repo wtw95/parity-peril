@@ -311,3 +311,4 @@ platform/windows/godot_res.res
 
 # GIMP project files
 *.xcf
+Restart.gd

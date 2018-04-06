@@ -12,6 +12,7 @@ config_version=3
 
 config/name="parity-peril"
 run/main_scene="res://parity-peril.tscn"
+boot_splash/image="res://assets/Splash Images/Title.png"
 config/icon="res://icon.png"
 
 [autoload]

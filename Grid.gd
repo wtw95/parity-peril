@@ -77,9 +77,13 @@ func wincheck():
 				if grid[x][y] == 4:
 					hasblue = true
 		if hasred == true and hasblue == false:
+			global.game_active = false
 			get_node("Victory Text").redvictory()
 		elif hasblue == true and hasred == false:
 			get_node("Victory Text").bluevictory()
+			global.game_active = false
+
+
 
 func bluecap(pos):
 	var pos_B = pos
@@ -129,14 +133,14 @@ func setcaptures():
 		
 func setpositions():
 	get_node("Odd_A").set_position(map_to_world(Vector2(4,5)  + half_tile_size))
-	#get_node("Odd_A/Sprite").show()
+	get_node("Odd_A/Sprite").show()
 	get_node("Odd_B").set_position(map_to_world(Vector2(5,5)  + half_tile_size))
-	#get_node("Odd_B/Sprite").show()
+	get_node("Odd_B/Sprite").show()
 	get_node("Odd_C").set_position(map_to_world(Vector2(6,5)  + half_tile_size))
-	#get_node("Odd_C/Sprite").show()
+	get_node("Odd_C/Sprite").show()
 	get_node("Even_A").set_position(map_to_world(Vector2(3,0)  + half_tile_size))
-	#get_node("Even_A/Sprite").show()
+	get_node("Even_A/Sprite").show()
 	get_node("Even_B").set_position(map_to_world(Vector2(5,0)  + half_tile_size))
-	#get_node("Even_B/Sprite").show()
+	get_node("Even_B/Sprite").show()
 	get_node("Even_C").set_position(map_to_world(Vector2(4,0)  + half_tile_size))
-	#get_node("Even_C/Sprite").show()
+	get_node("Even_C/Sprite").show()
